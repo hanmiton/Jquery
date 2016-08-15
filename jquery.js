@@ -116,3 +116,28 @@ $('h1').css({
 })
 //manipulacion del dom
 $('p').append($('<p>', {html : 'me acaban de crear'}))//intorduciendo un elemnto creaod dentro de otro
+
+//clousure
+var name = 'Sacha';
+
+function aleta(){
+	alert('Hola'+name);
+}
+ alerta();
+
+ //Serializar 
+ //es como hacer una gran cadena pra enviar mas facil los datos
+ //Prototype(funcioens o atributos)
+ //obteneindo ejempo a
+ <ul id="menu">
+ 	<li>
+ 		<a href="......">
+ 	</li>
+ </ul>
+//seleccionando href de a
+ $('#menu')
+ 	.find('a')
+ 	.eq(0)
+ 	.atrr('href');
+//diferente
+$('#menu li a').eq(0).attr('href');

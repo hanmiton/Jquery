@@ -26,6 +26,10 @@ Same-Origin-Policy(solo se peuden hacer peticiones desde el mismo dominio de lap
 JsonP(solo con metodos get json con padding)
 Cors(Cross-Origin-Resource-Sharing)( si el servidor lo da es que los podemos utilizar)
 API REST(End Points)
+promisse//esto se va ejecutar pero no se cuadno 
+promise para solucinoar el callback hell
+promisse para asincronismo 
+cloussure(algo propio del lenguaje)
 DOM(arbol de jerarquia que comopone nuestro ducumento)
 Jqueyr pra manipular el dom
 Jquery
@@ -39,3 +43,8 @@ Probando si vale jquery
 	jQuery
 		(si apracera la funcion(a,b){return ......})(jquery si se encuentra definido)
 		$ es lo mismo que jquery
+
+Graphql(nuevo sistema de comunicacion)(facebook)
+ - Se piden solo los datso que dicha vista necesita
+ //jqeuryui
+  da botoenes, grilals, calendarios etc... (ya no se usa mucho)
