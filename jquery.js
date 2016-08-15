@@ -59,4 +59,60 @@ var target = document.getElementById('target');
 var newElement = document.createElement('div'); //creando un lelemento ocn ajvacript
 $(target).after(newElement);//incluye el elemtno como un hermano
 
-
+$('header[data-title="tvfy"]'); //selecioan un header ocn dicho atributo y valor
+//primero acdeder al elemnto con id  y despues refinar
+$('#app-header').find('h1');//refinando busqueda
+$('#app.header').has('h1');//todos los header que tengan(has)
+$('p').filter('.text')//filtrando por clase text
+$('p').not('.text')//todos los pque no tengan clase text
+//encadenameinto de filtros
+$('p')
+	.filter('.text')
+	.has('a')
+	.first()
+//segundo
+.eq(1)//selecioannda segundo elemento
+//si ya se ieten hecha la seleccion es mas conveniente usar esa que tenemos
+//si se desea acutalizar se deber ahcer la misa seleccion
+ps= ps.add(p)//añadir elementos dentro de otros que ya estan preseleccionados
+document.body.appendChild(p)//añadir un elelmnto como hijo
+//creando elemtno con jqueyr
+var a = $('<a>', { //especificando tipo de etiqueta a crear
+	href: 'htt..........',//hred de etiqueta a
+	traget: '_blank',//target eitqueta a
+	html: 'ir a platzi' //html cotendio dentor de a
+})
+$('#app-body').append(a);//añadienod a a elemento con id app-body
+//manipular atribuso html jquery objtec
+a.attr('href')//getter consiguiend attr de un elemento
+a.attr('href', 'www.google.com') //setter modifica o pone attr dentro de atributo
+//encademaneindo de metodos
+a
+	.attr('href','www.googe.com')
+	.attr('html','ir a google')
+//enviado objetos
+a.
+	attr({
+		href: 'http......',
+		html: 'ir a google'
+	})
+//Setters attr pasamos valores
+	//operan sobre todos los elementos de la seleccion
+//getter seleccion multipe
+	//opera sobre el primer elemnto no mas
+//añadieno claes
+$('h1').addClass('danger');//añadir una clase a un elemnto
+$('h1').removeClass('danger');//quietando clase a un elemlnto
+$('h1').toggleClass('danger')//si tiene se la queita, no la tiene la añade
+//imporntate: cuando se ahce 2 selecciones sobre el mismo elemento conviene haccer la seleccion con anterioridad
+//antepoder $ a jqeury objets
+var $h1 = $('h1'); 
+var $h1b = $('h1');
+$h1===$h1b //no son iguales
+$h1[0]==$h1b[0] //son giuales por qu ahce referencia al objeto del DOM
+//manipular css
+$('h1').css({
+	'font-size': '70px'
+})
+//manipulacion del dom
+$('p').append($('<p>', {html : 'me acaban de crear'}))//intorduciendo un elemnto creaod dentro de otro
