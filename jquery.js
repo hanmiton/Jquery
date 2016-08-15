@@ -43,4 +43,20 @@ $(':disabled') //elementos desabilitados
 $(':text') //los de tipo text
 $(':checkbox')//seleccionar todo los raido butoton
 //JqueryObject
-//
+//El DOM y sus elementos(atritutos)
+//un Jquery Object no es un array
+//jquery
+//compatibilidad
+var target = document.getElementById("target");
+$(target).html('<td>hello<b>world</b>!</td>'); añadienod html dentro de un elemnto lalamnod target
+//conveniencia
+//vanilla javascript
+var target = document.getElementById('target');
+var newElement = document.createElement('div'); //creando un lelemento ocn ajvacript
+target.parentNode.insertBefore(newElement,target.nextSibling); //ponerlo dentro dle target
+//jquery
+var target = document.getElementById('target');
+var newElement = document.createElement('div'); //creando un lelemento ocn ajvacript
+$(target).after(newElement);//incluye el elemtno como un hermano
+
+
