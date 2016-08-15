@@ -1,1 +1,5 @@
 h1.danger todos los h1 con clase danger
+
+#app.body .search-form input[type="text"]{(seleciona el input de tipo text que este dentor de un elemnto que contenga la cals serach form y dicha clase este dentor de elemento con id app-body)
+
+}

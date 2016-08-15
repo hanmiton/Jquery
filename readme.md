@@ -48,3 +48,5 @@ Graphql(nuevo sistema de comunicacion)(facebook)
  - Se piden solo los datso que dicha vista necesita
  //jqeuryui
   da botoenes, grilals, calendarios etc... (ya no se usa mucho)
+ //browserify 
+ permite modularizar codigo js y despues ponerlo en un solo archivo

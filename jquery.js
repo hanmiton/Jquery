@@ -141,3 +141,202 @@ function aleta(){
  	.atrr('href');
 //diferente
 $('#menu li a').eq(0).attr('href');
+//events y callbacks
+//funciones son objetos
+//callbacks
+	//son funciones vamos a passar por parametro
+	//funciones que reciben como parametros otra funcion (en algun mometno se va utilizar)
+	//funciones anonimas que no tienen nombre
+function suam(num1,num2){
+	return num1+num2;
+}
+function resta(num1,num2){
+	return num1-num2;
+}
+function division(num1,num2){
+	return num1/num2;
+}
+function multiplicacion(num1,num2){
+	return num1*num2;
+}
+//cuenta seria la fucnino que se envia como parametro a calculadroa que puede ser cualqueira de las anteriores
+function calculadora(cuenta,num1,num2){
+	return cuenta(num1,num2);
+}
+//callbacks asincronicos
+	//en algun momento se va terminar ejecutando
+	//se peude pasar funciones con parametos pra cambiar la funcionalidad de dicha funcion
+//eventos
+//vanilla javascirpt
+	var button = document.getElementById('myButton');
+	button.addEventListener('click', function(event){
+		alert('Me hicieron click!');
+	})
+	//event viene con:
+		//que elemento se dio click y mas
+//jqeury lo msio con addEventListenre
+$('butotn').click(function(){
+	alert('me hicieorn click');
+})
+$('button').on('click', function(){
+	alert('me hicieiron click');
+})
+///
+$('.product button.like').click(function(ev){//seleccion botones con like dentro de product
+	$(this)//remina siendo cada uno de los botones seleccionados
+		.closest('.product')//buscar jerarquia mas arriba
+		.addClass('liked') //le añade la clse like
+});
+
+$('input').on("click change", function(){//multiples eventos click o cambiar texto
+	console.log("me hicieorn click o me camiaron el texto")
+})
+//los jqueryobject solo ese momento
+//bind cuando se le da un evento a una funcion
+$('p').on({
+	'click': function(){console.log("me hicieorn click");},
+	'mouseover': function(){console.log("me pasaron el mose pro encima");}
+})
+//browser Events
+.resize()
+.scroll()
+//documento loading
+.ready()
+//Event handker attachment
+//bind o unbind
+.off()//sacar evento 
+.on()//añadir envento
+//Event Objet
+	//llega por parametro con jquery es ocmoun a otdo los browser
+//form events
+	.blur()
+	.change()
+	.focus()
+	.select()
+	.submit()
+//keyboard events
+	.focusin()
+	.focusout()
+	.keydown()
+	.keypress()
+	.keyup()
+//cuanod queremos sacar eventos de una funciton callback que esa bindianda
+$('p').off('click');//sacando click event de los p
+//ejemplo
+var foo = function(){console.log('foo');};
+var bar = function (){console.log('bar');};
+
+$('p').on('click',foo).on('click',bar);
+$('p').off('click',bar);
+//jquery namespaces
+	//separa event handlers con otro event ahndler defina usuairo
+//event form jquery
+	$('form').on('submit',function(event){
+		event.preventDefault();//prevenir que el form haga post
+		console.log(event);
+		var action $(this).attr('action');
+		//hacer el request
+		$.ajax(action,{.........})
+	})	;
+//propagacin de eventos
+$('#list').on('click', 'a', function(event){
+	event.preventDefault();
+	console.log($(this).text()); 
+//trigger
+$('#myButton').trigger('click');
+$('#myButton').click()
+})
+//dos fomras de hacer submit
+//boton o tecla enter
+
+$('#app-body')//selecciona elemento con id app-body
+	.find('form')//se filtra y busca form
+	.submit(function (ev){ //evento submmit con callback funcion anonima
+		ev.preventDefault(); //evita haga post no se recarga la pagina
+		console.log('se hizo submit')
+})
+
+//explicacion de this
+$(function(){
+	$('#app-body')
+		.find('form')
+		.submit(function(ev){
+			ev.preventDefault();
+			console.log(this); //this viene a ser el form seleccion form del DOM
+			$(this)//se transforma this dom en jqueryobject
+			$(this).find('input[type='text']'); //sobre jquery object se puede realizar las operaciones de filtrado
+			.val(); //devuelve el palor del input
+		})
+		console.log(this);//this viene a ser el domenot qu ea cargado jquery objeto dom
+})
+console.log(this); //this viene siendo windows	
+
+//requesst tipo Ajax
+$.ajax({
+	url: 'http://api.tvmaze.com/shows',//url dentro dle objeto o puede ir como priemr prametnor de la funcion
+	success: function(data,textstatus, xhr){//succes ucando la peticion a sido exitosa (data,status,xhr)
+		console.log(data);//impriendo la data en consola
+		data.forEach(function(show){//forEach funcino que todo arreglo tiene y permite ejecutar una funcion por cada eelemento
+			var article = template //asigango string a una var cambiando tempalte string
+			 .replace(':name:',show.name) //replace funcion que teien todo string dentro de javascript
+			 .replace(':img:',show.image.medium)
+			 .replace(':summary',show.summary)
+			 .replace(':img alt:',show.name + "Logo");
+			$('#app-body')
+				.find('.tv-shows')
+				.append($(article))	//insertando jqueyrobjetc a tvshows
+
+		})
+	}
+
+}) //funciones puedne teneer metoso y porpiedades
+//request de tipo get por default
+var template = '<artticle>:name:</article>' //string tamble con variable name
+
+//mejrondao codigo
+$.ajax({
+	url: 'http://api.tvmaze.com/shows',//url dentro dle objeto o puede ir como priemr prametnor de la funcion
+	success: function(data,textstatus, xhr){//succes ucando la peticion a sido exitosa (data,status,xhr)
+		console.log(data);//impriendo la data en consola
+		var $tvShowsContainer = $('#app-body').find('.tv-shows');
+		$tvShowsContainer.find('.loader').remove();//removiendo un elmento de un jqeuryobject
+		data.forEach(function(show){//forEach funcino que todo arreglo tiene y permite ejecutar una funcion por cada eelemento
+			var article = template
+			 .replace(':name:',show.name)
+			 .replace(':img:',show.image.medium)
+			 .replace(':summary',show.summary)
+			 .replace(':img alt:',show.name + "Logo");
+			var $article= $(article); //transfomando a jqueyrobjetc
+			$article.hide();//ocultando elementos ocn jqueyr
+			$tvShowsContainer.append($(article))	
+
+		})
+	}
+
+})
+
+//peticion por id
+$(function(){
+	$('#app-body')
+		.find('form')
+		.submit(function(ev){
+			ev.preventDefault();
+			var busqueda = $(this)
+				.find('input[type="text"]')
+				.val();
+			$.ajax({
+				url: '............'
+				data:{ q: busqueda},//enviando parametros peticion get
+				success: function(res,textstatus,xhr){
+					%tvShowsContainer.find('tv.show').remove();//removidno tood los metodos
+					res.map(function(el){//funcion map permite devolver otro arreglo pero modificado con la function callback
+						return el.show;
+					}).forEach(function(show){//toma la respuesta y realiza uan funcion por cada una 
+						rendershows()
+					}//function que tiene los array modifica un arrayy la ejecota por cada elemento
+				}
+			})
+		})
+		console.log(this);//this viene a ser el domenot qu ea cargado jquery objeto dom
+})
+console.log(this); //this viene siendo windows	
