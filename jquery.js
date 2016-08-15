@@ -340,3 +340,17 @@ $(function(){
 		console.log(this);//this viene a ser el domenot qu ea cargado jquery objeto dom
 })
 console.log(this); //this viene siendo windows	
+
+//promise	
+	//solucinando callback hell anidacion de callbacks
+	//tiene 3 estasod
+		//pendiend
+		//finalizado
+		//error
+	//encadenar co metodo then encadenar 
+$.ajax('http://api.tvmaze.com/shows')
+.then(function(shows){//en vez de succes usamod then
+	$tvShowsContainer.find('.loader').remove();
+	renderShows(shows);
+})
+
