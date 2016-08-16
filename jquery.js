@@ -354,3 +354,64 @@ $.ajax('http://api.tvmaze.com/shows')
 	renderShows(shows);
 })
 
+//localStrorage se grava en strings
+
+localStrorage.shows = JSON.stingigy(shows); //llamamos s local estroega y transofrmamos json a string
+renderShows(JSON.parse(localStrorage.shows); //pasando de strgin a json 
+//como ahcer una peticon ajax dentro de otra ajax
+$.ajax('http://api.tvmaze.com/shows')
+	.then(function(shows){
+		$.ajax('http://api.tvmaze.com/shows/'+ shows[0].id)
+	})
+
+show.image ? show.image.medium : ''//if de una sola linea
+(Condicion) ? true : false <--- Eso se llama Operador Ternario.
+
+//Ajax
+	//Se puede implementar con jquery
+	//Fecth para poder realziar peticiones ajax
+	//superagent implementra request
+//polyfill
+	//cuanod el browser no tiene dicha funcionalidad la agrega
+
+//Animaciones
+	fadain('fast') 200 milisegundos
+	fadein('slow') 600 milisegunndos
+	fadeout()
+	fadein(1000) dato en milisegundos
+//metodo burbuejo
+//si hace click en un hijo se ahce burbujero para añdir unclase a un padre
+	$tvShowsContainer.on('click', 'button.like',function(){
+		var $this = $(this);
+		//primera manera de animacion
+		$this.animate({ 
+			'fontSize': '30px'
+		}, 'fast');
+		//segunda forma de animar
+		$this.closest('.tv-show').toogleClass('liked');//funcion que busca al padre que cumpla ocn dicha condicion
+//añadiendo dependencias de fornend ocn npm 
+//verionado de proyectos
+^MAJOR.MINOR.PATCH
+//major: cuando se hacen cambios incompatibles
+//agregamos funcinalidad a la funcionalidad pero sigue tood siendo compatible
+//para arreglar bugs
+//^ultima version compatible con el major
+npm install --save jquery
+//browserify
+	//permite requerir modulos dentro de nuestro proyecto (dev)
+	//devuelve un bundle
+npm install --save-dev browserify
+//añadieonod script
+//package json
+	"scripts": {
+		"build-js": "browserify index.js app.js"//corriend comaondo de browserify
+	}
+var $ = require('jquery');//cuando se usa browserify
+//Ecscirpt2015 es lo que especifica el nucelo dle lenguaje
+//Babel transpilador de 2015 a es2005 corre en todos los browser
+npm install --save-dev babelify babel-preset-es20105
+//es2015
+import $ form 'jquery';
+//mkdir -p public (crea la carpeta y si ya esxite la deja)
+//cp index.css public/app.css && cp index.html public/index.html
+//Db.store es un archivo que genera mac y toca ignorar
