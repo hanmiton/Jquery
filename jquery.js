@@ -451,3 +451,9 @@ page(`/search?q=${busqueda}`)//${podmeos sali de stirng y porner variables}
 
 //usando qs
 	//qs.parse(ctx.querystring)
+www.uxpin.com //link para parender y libros gratis
+//url para el uso de bable
+//LEER IMPORTANTE
+
+//comparacion jquery vs vanilla javascirpt
+https://platzi.com/clases/javascript-jquery/concepto/complementos-del-curso4947/guida-completa-sobre-ecmascript-6/material/

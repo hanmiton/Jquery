@@ -9,3 +9,49 @@
 	<script href="url-jquery" type="text/javascript"></script>(agregando jquery pra poder utilizar en el proyecto)
 </body>
 </html>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jquery vs vanilla javacript</title>
+</head>
+<body>
+<button id="boton">click me</button>
+<script type="text/javascript">
+	//vanilla
+	var boton = document.getElementById('boton');//tomando elmeentod del dom
+	boton.addEventListener('click',function(ev){//añadiendo eventos boton dom
+		var request = new XMLHttpRequest();//instanciano para poder hacer un request
+		request.open('GET','http://api.tvmaze.com/shows/1',true);//hacingo peticon tipo get
+		request.onload = function(){//cuando request cargo
+			if (request.status >= 200 && request.status<400){//status entre 200 y 400
+				var data = JSON.parse(request.responseText); //transoformado de text a json
+				var p = document.createElement('p');//crando elemnto tipo p
+				var img = document.createElement('img');//creando elemtno tipo img
+
+				p.innerHTML = data.name;//añadiendo htnl dentro de p
+				img.src= data.img.medium;//añadienod src de img
+
+				document.body.appendChiild(p); //añadiendo hijos a body
+				document.body.appendChiild(img);
+			}
+		}
+		request.onerror = function(){//por si existe un eroor en la peticon
+			console.log('se a produciod un error');
+		}
+		alert('Me hicieorn click')
+	})
+
+	//jquery
+	var boton = $('#boton');//seleccionand boton del dom
+	boton.click(function(ev){//boton es un jquery object añadien ev click
+		$.getJSON('http://api.tvmaze.com/shows/1', function(data){//peticion get
+			var p = $('<p>', {html: data.name});//creando elementos
+			var img = $('<img>', {src: data.image.medium});
+			$('body').append(p, img);//agregando como hijos elementos a body
+		})
+	})
+
+</script>
+</body>
+</html>
