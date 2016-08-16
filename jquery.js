@@ -415,3 +415,39 @@ import $ form 'jquery';
 //mkdir -p public (crea la carpeta y si ya esxite la deja)
 //cp index.css public/app.css && cp index.html public/index.html
 //Db.store es un archivo que genera mac y toca ignorar
+//realizacion deimport
+//simpre poner index.js ya que es el archivo que se requeire por defercto
+import $ from 'jquery'
+//exportar una funcionalidad del modulo
+export function getShows(fn){ //recibiendo funcion por parametro fn
+	$.ajax('http://api.tvmaze.com/shows',{
+		success: function(shows, textStatus,xhr){
+			fn(shows);
+		}
+	})
+}
+
+export function  searchShows(busqeuda,fn){
+	$.ajax('http://api.tvmze.com/search/shows',{
+		data: busqueda,
+		success: function(res,textstatus,xhr){
+			fn(res)
+		}
+	})
+}
+
+//usando page.js
+import page from 'page';
+//midleware funciones clalback que se encadena y van entre la solicitud y la recepcion del request
+import {getShows} from 'src/tvmaze-api-client';
+page('/', function(ctx, next){
+
+})
+
+page()//con esto activamos page y empieza a escuchar
+n
+//uso de tempalte string
+page(`/search?q=${busqueda}`)//${podmeos sali de stirng y porner variables}
+
+//usando qs
+	//qs.parse(ctx.querystring)
