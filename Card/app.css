@@ -1,0 +1,17 @@
+body{
+	font-family: Arial;
+}
+
+.Card{
+	border-radius: .5em; //coje 5 veces el tamaño de fuente dle padre mas cercano que tenga una fuente definida
+
+}//uando preprocesador stylus
+body
+	background red
+//en stylus no se necesita ni corchetes ni dos puntos ni putno y comoa
+//stylus -c sirve para ocmprimir un archivo
+//concatenar clases stylus
+.card
+	&-description
+	&-image //concatenado clases en stylus
+//stylus -w escuchando los cambios dentro del archvo y compila automaticamente
