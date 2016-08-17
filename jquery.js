@@ -1,3 +1,46 @@
+//jquery2
+.done(function(results){//cuando una funcino asincrona se a completado 
+	var characteres= results.data.result[0].charaters.items;	
+	debugger
+})
+//promises
+	//estados
+		//pending (pendiente
+		//resoved 
+		//rejected
+//promeise neuvo estandar con jquery
+Promise.resolve($.get(url))
+.then(function(results){
+	var characters = results.data.results[0].characters.timtes
+	Promise.resolve.($.get(characters[0].resourceURI))
+})
+.then(function(){
+	debugger
+})
+.catch(function(err){
+	console.error(err)
+})
+
+//arreglo de poromesas
+Promise.all([])//promesa que espera que se resulva todas las pormesas que se encutnra dentor d eun arreglo
+.filter//funcion qeu gurada en otor arreglo todos lo que son true(cumple ocndiciones
+! convirete ne lo contraio
+!! convierte en lo mismo peor en true or false (null undifined
+)
+)
+//stylus
+//usando ellipsis de nig para truncar
+ overflow(ellipsis)//oculta el texto que no da en l a caja
+ //latenica /tienpo q se tarda en devolvwr un dato
+  //memoria ram lom as rapido (cache mas rapido)
+  //discos rigidos
+  //discos externos
+  //red 	
+  //localstorage datos q no cambiaran
+  //lodash funcines q facilitan trabajr ocn javascript
+
+  //evnetos
+  //son funciones que se llaman cuando pasa algos
 $ //es lo mismo que llmar a jqueyr
 window.onload = function(){ //funcion que se ejecuta cuando se carag todo el DOM
 //desventaja que puede demorarse mucho tiempo
@@ -740,6 +783,10 @@ class Persona {
 }
 
 export default Persona;
+
+Map
+Los Map son un tipo de estructura de datos que permite relacionar dos datos arbitrarios entre sí y poder fácilmente acceder a ellos.
+
 var myHtml = ""; //crando varibal string vacia
 $.each(lenguajes, function(i,item){
 	myHtml +="<li class="\lenguajes\"> +item+ "</li>";//añadiendo cada li de lenguejes a variable string
@@ -765,3 +812,11 @@ parent.append(lenguajes);//regresamos elmento con los handlers que tenia
 lenguajes.slideUp();
 https://platzi.com/clases/javascript-jquery/concepto/complementos-del-curso4947/guida-completa-sobre-ecmascript-6/material/
 
+
+//FAKSE VAKYES
+''
+null
+undefined
+NaN
+
+//crawlers robotitos de google q tratan de indexar paginas

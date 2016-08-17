@@ -1,0 +1,63 @@
+//mixin dentro de stylus
+//mixin como fuoncio qeu permite reutilizar codigo dentro de css
+test(color= red)
+	border 1px solid red
+	box-sizing border-box //poner borde de caja
+.Layout
+	test()
+	> section
+		test(green)
+//flex solo afecta a los hijos directos
+//flex direcin (direccion del flex)
+//min-height 100vh
+//flex 1 es para que ocupe todo el ancho q puede ocupar
+//jade fucnion repetir
+each card in [1,2,3,4,5] //repite 5 veces un template modularizado
+//nib conjunto de mixins q completa los prefijos si alguna propiedad de css la necesita
+//sylus compilando con nib
+stylues -u nib -w -c -o ../fads/fadsf ./main.styl//-u es pra añadir plugins terceros como nib
+@import nib//@import permite modularizar codigo con sylus
+//uso variables dentro de jade
+- name = "Hanmilton" //uso de varibles dentor de jade
+se usa ()=name //uso de variables dentro de jade
+dashed borde como recortado
+text-transform uppercase //permite modifcar el texto
+box-shadow 0 0 10px rgba(black,.5)(x,y,difuminada,color)
+	include ./card/template.jade
+rgba(black,.5) //fomra de declarar rgba sylus
+> selecionar elmetnso dentro
+//ctrl+shift+v pegando con todo he identaiocn
+//gulp-sprite (consultar que es)
+//Api
+	//se comunican por json
+	//se comuninca por http
+		get
+		pot
+		put
+		delete
+		patch
+		y otros
+	estados
+		200 todo bien
+		400 eroror usuario
+			401 no estamos autenticados
+		500 eroor del servidor 
+//postcss
+es como usar el css del futuro
+//linter es como uno q te permite escribir correctamente la sitaxis
+//nib añdido a stylus
+//postcss son un nuemro de pulugins q permiten facilitar la codificacion de css
+
+// qeu es un componente
+	- minima parte de tu codigo que puede ser independiendte puede terer (html,css,javascript)
+//suitcss
+ //convenciones pra escribir componenetes
+ComponentName (toda palabra comienza con mayuscula)
+CompoenteName--modifierName (dos guiones para modificar un componente)
+ComponentNmae-descendentName(atributos de el compoenete)
+ComponentName.is-stateOfComponent(estado del componente empieza con is)(solo componenete con mayuscula la primera lo demas camel case)
+u-utilityName( son como clases generales)
+
+//jade comandos
+section.layout//section con clase layout
+.layout-status //div con clase layout-status

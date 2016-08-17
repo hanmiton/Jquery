@@ -15,3 +15,7 @@ body
 	&-description
 	&-image //concatenado clases en stylus
 //stylus -w escuchando los cambios dentro del archvo y compila automaticamente
+//stylus -h ayuda
+//jade 
+	 motor de templates
+	 //se lo puede usar comp reoprocesador de html

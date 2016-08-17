@@ -1,0 +1,26 @@
+doctype html
+html(lang="es")
+head
+	meta(charset="UTF-8")
+	title MARVER GAME CARD
+	link(rel="stylesheet", href"./app/css")//se seprand por , los atributos
+body
+	h1 MARVE GAME CARD
+	div(class"Card")
+		h2(class="Card-name") Wolverine
+		img(src"./imgaes/wolverine.jpr", alt="wolverine", class"Card-image")
+//compilado jade
+jade nombre.jade
+//stylus
+stylus -m -c -o ../public/css/ app.styl//-o output pra especificar un destino
+//jade 
+jade -o ../ -w -P index.jade //-o output para jade
+include ./card/template.jade //para añadir .jade modular
+//creacin layout ocn jade
+	section(class="Layout")
+		section(class="Layout-angonist") angonist
+		section(class="Layout-main")
+			div(class="Layout-status") status
+			div(class="Layout-battle") battle
+			div(class="Layout-phases") phases
+		section(class="Layout-player") player
