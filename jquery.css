@@ -6,5 +6,72 @@ h1.danger todos los h1 con clase danger
 
 .tv-show-liked{
 	background-color: #F1A9A0;
-	transition: all 1s ease;
+	transition: all 1s ease; 
 }
+
+::first-letter
+	El pseudo-elemento “::first-letter” modifica la primera letra del texto
+	p::first-letter{color: #000000; font: 300% Adobe Caslon Pro Bold;}
+::first-line
+
+El pseudo-elemento “::first-line” modifica la primera línea del texto. En este caso, en mi código, la cambié por el color azul. Ejemplo:
+
+
+p::first-line{ color: #0000ff;}
+
+::selection
+
+El pseudo-elemento “::selection” nos permite cambiar el color de los textos que seleccionemos con el cursor del mouse.
+::-moz-selection{/* Codigo para Firefox */color: blue;background: #afcfff;} 
+::selection{color: blue;background: yellow;}
+//uso de pseudoelementos
+https://platzi.com/clases/javascript-jquery/concepto/complementos-del-curso4947/introduccion-a-pseudo-elementos-en-css3/material/
+ ::Pseudoelementos
+ :Pseudoclases;
+Las unidades y medidas en CSS están divididas en dos grandes grupos:
+
+
+Unidades Absolutas
+	cm: Aumenta el tamaño de nuestro texto o elemento en centímetros
+
+mm: Aumenta el tamaño de nuestro texto o elemento en milímetros
+
+in: Aumenta el tamaño de nuestro texto o elemento en pulgadas (1in = 96px = 2.54cm)
+
+px: Aumenta el tamaño de nuestro texto en pixeles (Dependiendo del dispositivo, este elemento se clasifica también en Unidades Relativas. Aunque también depende de la versión de CSS que se maneje)
+
+pt: Aumenta el tamaño de nuestro texto en puntos (1pt = 1/72 de 1in)
+
+pc: Aumenta el tamaño de nuestro texto en picas (1pc = 12 puntos aprox)
+
+Ya que el pixel es una de las unidades absolutas más utilizadas, realizaremos un ejemplo:
+
+Unidades Relativas
+las unidades relativas se subdividen en 2 grupos:Relativas a la tipografíaRelativas al viewport
+
+Relativas a la tipografía
+
+em: Relativo al tamaño de fuente de un elemento. Si, por ejemplo, utilizamos 3em (font-size: 3em); mi texto aumentará 3 veces su tamaño en relación al tamaño que se esté utilizando por defecto.
+
+ex: Aumenta el tamaño de mi letra en cuanto a su altura.
+
+Rem: Es igual a (em) con la diferencia de que este actúa en la raíz. O sea, en la letra que esté utilizando por defecto.
+Relativas al viewport – ventana
+
+vw: Porcentaje relativo a la anchura del viewport.
+
+vh: Porcentaje relativo a la altura del viewport.
+
+vmin: Entre vw y vh toma el que tenga menor valor.vmax: Entre vw y vh toma el que tenga mayor valor
+
+window: Este objeto representa la ventana del navegador.
+
+onload: Es un evento que ocurre cuando un objeto ha sido cargado.
+
+window.onload: Por ende, se refiere a cuando carga la ventana.
+
+document: Se refiere al objeto, que es nuestro documento HTML.
+
+document.querySelector(): Es una función que acepta por parámetro un selector de CSS (por ejemplo, img o .special) y regresa el primer elemento que coincida con esa búsqueda.
+
+document.querySelectorAll(): Hace lo mismo que la anterior, pero regresa todos los elementos que coincidan.

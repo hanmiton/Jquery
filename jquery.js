@@ -456,4 +456,312 @@ www.uxpin.com //link para parender y libros gratis
 //LEER IMPORTANTE
 
 //comparacion jquery vs vanilla javascirpt
+--Merjodan do la performance d ejquery
+<!DOCTYPE html>
+<ul id"lenguajes">
+</ul>
+//se tran te de interactuar lo menos posbile con el DOM
+//perfomrance 
+var lenguajes = [
+	"php",
+	"c#",
+	"c",
+	"c++",
+	"javascript",
+	"ruby",
+	"python"
+]
+//se interactua mucho con el DOM
+$.each(lenguajes, function(i,item){//realiza una funcion por cada elemento de lengujes
+	var newListItem = "<li>" + item + "</li>" //crando elemento de tipo item
+	newListItem.appendTo('#lenguajes');//añadiendo cada li a lelemento lenguejs
+}
+//slectore jquery son los mismo selectores que css
+var abuelo = $('#abuelo');
+var padre = abuelo.find('.padre'); 
+var hijos = padre.find('p.hijo');
+alert(hijos.html());//solo se imprime el primer elemento por q es un getter con eseptcion 
+hijos.eq(2).addClass('favorito');//seleccionan elemento 3 y añadienod clase favorito
+
+//uso de tipso desde npm
+	//carte pequño que sale cuanod se hace hover sober algun elemento
+data-tipso="lo que se ve de tipso"//dentro de html
+npm install --save tipso
+	$('.title-tipso').tipso();
+//
+maneoj con browserify parcelify
+//optimizando uso de jquery 
+//parcelify plugin de browserify para manejar los estilos
+//dependencias de desarrollo
+-p //para uso de plugind scrpits 
+//dentro de packagem manager
+"styles":[
+	"./node_modules/tiposo/src/tipso.css"
+]
+
+
+Babel.js es un transpiler que permite convertir código de ECMAScript 6 a código compatible con la mayoría de navegadores modernos.
+sudo npm i -g babel
+babel archivo.js -o build.js
+babel-node archivo.js
+---Usandolo con Browserify
+ Babelify
+ [sudo] npm i -D browserify babelify
+ browserify -t babelify -i src/main.jsx -o build/main.js
+ ---gulp 
+  gulp-babel
+  var gulp  = require('gulp');
+var babel = require('gulp-babel');
+
+gulp.task('js', function () {
+  gulp.src('/src/es6/*.js')
+    .pipe(babel())
+    .pipe(gulp.dest('/build/js/'));
+});
+Usandolo con Nodemon
+	nodemon --exec babel-node -- server.js
+Usandolo con Mocha
+	mocha --compilers js:babel/register
+--caracteristicas de es06
+let en vez de var
+const en lugar de let o var. 
+Template strings
+	 strings con variables
+	 ${ y } o operaciones
+
+Strings multilínea
+	
+let mensaje = `Hola Don Pepito
+Hola Don Jose`;
+console.log(mensaje);
+
+Números en Octal
+	console.log(0o35);
+
+Números en Binario
+	console.log(0b1001);
+Objeto Math
+	acosh().
+	asinh().
+	atanh().
+	cbrt().
+	clz32().
+	cosh().
+	exp1m().
+	fround().
+	hypot().
+	imul().
+	log10().
+Métodos de Arrays
+
+Array.from(array, mapFn)
+
+Este nuevo método del objeto Array permite crear un array copiando otro array o un NodeList.Es posible utilizarlos actualmente mediante polyfills.
+
+let arr1 = [1,2,3];
+let arr2 = Array.from(arr1, v => --v; );
+arr2.push(3);
+console.log(arr1);
+console.log(arr2);
+
+Otros métodos
+Además de .from() se agregaron los siguientes métodos:
+
+.of(): crea un nuevo array con un número variado de elementos
+.fill(): llena un array con un nuevo valor en cada elemento
+.find(): busca un elemento dentro de un array y devuelve el valor
+.findIndex(): similar a .find() pero devuelve el índice
+.entries(): devuelve una instancia del objeto Iterator que contiene cada índice y valor del array
+.keys(): similar a .entries() pero el Iterator solo muestra los índices
+.copyWithin(): copia los elementos de un array en las posiciones indicadas
+
+Asignación de propiedades
+	let nombre  = 'Jose';
+	let persona = {
+	  nombre,
+	  honorifico: 'Don'
+	};
+	console.log(persona);
+Asignación de métodos
+	let pepito = {
+		  saludar(persona) {
+		    return `Hola ${persona.honorifico} ${persona.nombre}`;
+		  }
+		}
+		console.log(pepito.saludar({ nombre:'Jose', honorifico:'Don' }));
+Asignación por descomposición
+// objetos
+let persona = {
+  nombre: 'Jose',
+  honorifico: 'Don'
+};
+
+let { nombre, honorifico: titulo } = persona;
+console.log(nombre);
+console.log(titulo);
+
+// arrays
+let fecha    = [24, 4, 2015];
+let [d, , y] = fecha;
+console.log(d);
+console.log(y);
+
+Parámetros por defecto
+function saludar (nombre, honorifico = 'Don') {
+  return `Hola ${honorifico} ${nombre}`;
+}
+console.log(saludar('Pepito', 'Don'));
+console.log(saludar('Jose'));
+Arrow functions
+let sumarUno = x => x + 1;
+console.log(sumarUno(23));
+--varios parametros
+let sumar = (x, y = 1) => x + y;
+console.log(sumar(1264, 751));
+console.log(sumar(3));
+--sin parametros
+let saludar = () => 'Hola Don Pepito'
+console.log(saludar());
+--con cuerpo
+let saludar = persona => {
+  let { nombre, honorifico } = persona;
+  let mensaje = `Hola ${honorifico} ${nombre}`;
+  return mensaje;
+}
+console.log(saludar({ nombre: 'Pepito', honorifico: 'Don' }));
+
+Promesas
+function obtenerDatos () {
+  return new Promise((resolve, reject) => {
+    let n = Math.floor(Math.random() * 2) + 1;
+
+    setTimeout(() => {
+      if (n === 1) resolve('Datos obtenidos');
+      else reject(new Error('Hubo un error al obtener los datos'))
+    }, 500);
+  });
+}
+
+obtenerDatos()
+  .then(data => {
+    console.log(data);
+  })
+  .catch(error => {
+    console.log(error);
+  });
+
+
+Generadores
+function* fibonacci() {
+  let anterior = 0, actual = 1;
+  while(true) {
+    let temp = anterior;
+    anterior = actual;
+    actual  += temp;
+    yield actual;
+  }
+}
+
+let fibo = fibonacci();
+
+for (let i = 0; i < 5; i++) {
+  console.log(fibo.next());
+}
+terators y for...of
+Iterators
+
+Los Iterators son un tipo de objeto que nos permite iterarlos usando el método .next() (los generadores son instancias de Iterator).
+
+
+let arr  = ['foo','bar','baz'];
+
+let eArr = arr.entries();
+
+console.log(eArr.next());
+console.log(eArr.next());
+console.log(eArr.next());
+console.log(eArr.next());
+//guia pra es06
 https://platzi.com/clases/javascript-jquery/concepto/complementos-del-curso4947/guida-completa-sobre-ecmascript-6/material/
+
+let arr = [1,2,3];
+
+for (let n of arr) {
+  console.log(n);
+}	
+Definición de clase
+Para definir una clase simplemente se usa la palabra class seguida del nombre de la clase y luego entre llaves los métodos de esta.
+
+class Persona{
+  constructor(nombre) {
+    this.honorifico = 'Don';
+    this.nombre = nombre;
+  }
+  saludar(persona) {
+    return `Hola ${persona.honorifico} ${persona.nombre}`;
+  }
+}
+
+let Pepito = new Persona('Pepito');
+let Jose   = new Persona('Jose');
+
+
+Extendiendo una clase
+Métodos estáticos
+También es posible definir métodos estáticos que se pueden ejecutar sin necesidad de instanciar la clase simplemente agregando static antes del nombre del método (el método constructor no puede ser estático).
+
+class Persona {
+  constructor(nombre) {
+    this._nombre = nombre;
+  }
+
+  get nombre() {
+    return this._nombre;
+  }
+
+  set nombre(nuevo) {
+    this._nombre = nuevo;
+  }
+}
+
+let Pepito = new Persona('Pepito');
+console.log(Pepito.nombre);
+Pepito.nombre = 'Don Pepito';
+console.log(Pepito.nombre);
+Exportación única
+class Persona {
+  constructor(nombre) {
+    this.honorifico = 'Don';
+    this.nombre     = nombre;
+  }
+  saludar(persona) {
+    return `Hola ${persona.honorifico} ${persona.nombre}`;
+  }
+}
+
+export default Persona;
+var myHtml = ""; //crando varibal string vacia
+$.each(lenguajes, function(i,item){
+	myHtml +="<li class="\lenguajes\"> +item+ "</li>";//añadiendo cada li de lenguejes a variable string
+}
+$('#lenguajes').html(myHtml);añdiendo html dentro de lenguejes( solo se interactua una vez con el DOM
+
+
+//
+var lengujes = $('#lengujes');
+var listItems = lenguajes.find('li');
+var length = lisItems.length//cacheando variabl epra no llmar cada vez dentor del for 
+for (var i = 0; i< listItems.length; i++){//se pregunta cada ver por listItems.length mejor cambiarlo con una varible fija
+	//algo completo con cada listItems
+}
+
+var parent = lenguajes.parent();
+lenguajes.detach();//funcion saca dle dom pero sin sacar los handler que tenia este elmento (click)
+//modificamos lenguajes
+parent.append(lenguajes);//regresamos elmento con los handlers que tenia 
+
+//operar ocn elemneto que no sabes is estan en el dom
+
+lenguajes.slideUp();
+https://platzi.com/clases/javascript-jquery/concepto/complementos-del-curso4947/guida-completa-sobre-ecmascript-6/material/
+
